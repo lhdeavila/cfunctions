@@ -1,0 +1,4 @@
+/*
+	implementacion getline
+	personalizada
+*/

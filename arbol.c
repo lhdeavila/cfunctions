@@ -5,7 +5,6 @@
 /*
 	Conteo de repeticiones de palabras.
 	Usando estructura de datos de tipo "arbol".
-
 */
 struct tnode {
 	char *word;

@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <ctype.h>
 #include <string.h>
-#include "talloc.c"
+#include "talloc.h"
 /*
 	Conteo de repeticiones de palabras.
 	Usando estructura de datos de tipo "arbol".
@@ -31,14 +31,14 @@ main(){
 }
 
 struct tnode *talloc(void);
-char strdup(char *);
+char custom_strdup(char *);
 
 /* agrega palabra (nodo) al arbol. */
 struct tnode *addtree(struct tnode *p, char *w){
 	int cond;
 	if(p == NULL){
-		P = talloc();
-		p -> word = strdup(w);
+		p = talloc();
+		p -> word = custom_strdup(w);
 		p -> count = 1;
 		p -> left = p -> right = NULL;
 	} else if ((cond = strcmp(w, p -> word)) == 0)
@@ -58,12 +58,31 @@ void treeprint(struct tnode *p){
 	}
 }
 
+int getword(char *word, int lim){
+	int c, getch(void);
+	void ungetch(int);
+	char *w = word;
+
+	while (isspace(c = getch()))
+		;
+	if ( c != EOF )
+		*w++ = c;
+	if ( !isalpha(c)){
+		*w = '\0';
+		return c;
+	}
+	for ( ; --lim > 0; w++ )
+		if (!isalnum(*w = getch())){
+			ungetch(*w);
+			break;
+		}
+}
 /*
 struct tnode *talloc(void){
 	return (struct tnode *) malloc(sizeof(struct tnode));
 }
-
-char *strdup(char *s)
+*/
+char *custom_strdup(char *s)
 {
 	char *p;
 	p = (char *) malloc(strlen(s) + 1);
@@ -71,4 +90,4 @@ char *strdup(char *s)
 		strcpy(p, s);
 	return p;
 }
-*/
+

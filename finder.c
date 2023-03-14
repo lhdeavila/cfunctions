@@ -1,8 +1,9 @@
 #include <stdio.h>
 #include <string.h>
-#define MAXLINE 1000
 
-int getline;
+#include "getline.h"
+
+#define MAXLINE 1000
 
 main(int argc, char *argv[]){
   char line[MAXLINE];
@@ -26,7 +27,7 @@ main(int argc, char *argv[]){
     if (argc != 1)
       printf("Uso: find -x -n patron\n");
     else
-      while (getline(line, MAXLINE) > 0){
+      while (custom_getline(line, MAXLINE) > 0){
         lineno++;
         if ((strstr(line, *argv) != NULL) != except){
           if(number)

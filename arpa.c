@@ -1,5 +1,10 @@
 
 /* define low level data structures of unix inter networking */
+
+/* 
+	s = socket(family, type, protocol) 
+*/
+
 struct sockaddr {
 	short sa_family; /* address family */
 	char sa_data[14]; /* up to 13 octets of address */
@@ -11,7 +16,9 @@ struct sockaddr_in {
 	long sin_addr; /* 4 octet IP address */
 	char sin_data[8]; /* unused */
 };
-
+/*
+	hostent = gethostbyname(name)
+*/
 struct hostent {
 	char *h_name; /* official name of host */
 	char **h_alias; /* list of aliases */

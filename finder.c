@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 
-#include "getline.h"
+#include "getline.c"
 
 #define MAXLINE 1000
 

@@ -1,3 +1,5 @@
+#include <stdio.h>
+#include <stdlib.h>
 #define BUFSIZE 100
 char buf[BUFSIZE];
 int bufp = 0;
@@ -12,4 +14,4 @@ void ungetch(int c)
                 printf("ungetch: demasiados caracteres\n");
         else
                 buf[bufp++] = c;
-} 
+}

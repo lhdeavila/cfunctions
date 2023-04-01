@@ -1,3 +1,5 @@
 # make
 bienvenido:
-	gcc -o bienvenido precompilador.c
+	gcc -o arbol arbol.c getch.o
+getch.o:
+	gcc -c getch.c

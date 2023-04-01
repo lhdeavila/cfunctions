@@ -1,5 +1,6 @@
 # make
-bienvenido:
-	gcc -o arbol arbol.c getch.o
+arbol:
+	gcc arbol.c getch.o
 getch.o:
 	gcc -c getch.c
+
